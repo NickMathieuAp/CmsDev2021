@@ -10,6 +10,10 @@ const IndexPage = () => {
 
       <Layout pageTitle="Welcome to vintage guitars">
       <p>Guitars aged like wine</p>
+      <StaticImage
+        alt="randomized unsplash image!"
+        src="https://source.unsplash.com/random/800x600"
+      />
       </Layout>
   )
 }
