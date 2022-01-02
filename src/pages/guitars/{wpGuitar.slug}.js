@@ -1,9 +1,15 @@
 import * as React from 'react'
 import Layout from '../../components/layout'
 import { graphql } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image' 
 
-const GuitarPage = (props) => {
-  console.log(props)
+const GuitarPage = ({
+  data:{
+    guitars: {gitaar: guitars},
+},
+
+}) => {
+  const image = getImage(guitars.image.mediaDetails)
   return (
     <Layout pageTitle="Guitars">
  <div>
@@ -38,12 +44,16 @@ export const query = graphql`
               soortLak
               stijl
               typeZadel
+              image {
+                mediaDetails {
+                  gatsbyImageData(file)
+                }
+              }
             }
           }
         }
       }
     }
-
 `
 
 export default GuitarPage
