@@ -11,12 +11,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
-    {
-      resolve: `gatsby-source-wordpress`,
-      options: {
-        url:'http://2122.cmsd.mathieun.showroom/graphql/'
-      },
-    },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -24,7 +19,17 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-
+    {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        url:'http://2122.cmsd.mathieun.showroom/graphql/',
+        debug: {
+          graphql: {
+            copyHtmlResponseOnError: true
+          }
+        }
+      }
+    }
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
